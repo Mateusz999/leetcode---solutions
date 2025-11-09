@@ -1,0 +1,5 @@
+# Write your MySQL query statement below
+select name,sum(amount) as balance from users u # pobieramy imie i sumujemy ilosc jako balance z uzytkownika
+join transactions t on u.account=t.account # łączymy gdzie jest to samo konto
+group by name # grupujemy po imieniu
+having balance>10000 # gdzie balance powyzej 1000

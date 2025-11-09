@@ -1,6 +1,6 @@
 # 🧠 LeetCode Solutions by MvB_Coder
 
-Automatycznie synchronizowane rozwiązania z mojego profilu LeetCode.
+Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 
 ## 📊 Lista zadań
 
@@ -66,6 +66,7 @@ Automatycznie synchronizowane rozwiązania z mojego profilu LeetCode.
 | 204 | [Count Primes](https://leetcode.com/problems/count-primes/) | Medium | csharp | [solution.cs](solutions/2894-divisible-and-non-divisible-sums-difference/solution.cs) |
 | 206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) | Easy | csharp | [solution.cs](solutions/2918-minimum-equal-sum-of-two-arrays-after-replacing-zeros/solution.cs) |
 | 217 | [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) | Easy | csharp | [solution.cs](solutions/2900-longest-unequal-adjacent-groups-subsequence-i/solution.cs) |
+<<<<<<< HEAD
 | 231 | [Power of Two](https://leetcode.com/problems/power-of-two/) | Easy | pythondata | [solution.txt](solutions/2885-rename-columns/solution.txt) |
 | 242 | [Valid Anagram](https://leetcode.com/problems/valid-anagram/) | Easy | pythondata | [solution.txt](solutions/2884-modify-columns/solution.txt) |
 | 258 | [Add Digits](https://leetcode.com/problems/add-digits/) | Easy | pythondata | [solution.txt](solutions/2881-create-a-new-column/solution.txt) |
@@ -142,6 +143,8 @@ Automatycznie synchronizowane rozwiązania z mojego profilu LeetCode.
 | 1313 | [Decompress Run-Length Encoded List](https://leetcode.com/problems/decompress-run-length-encoded-list/) | Easy | csharp | [solution.cs](solutions/2011-final-value-of-variable-after-performing-operations/solution.cs) |
 | 1317 | [Convert Integer to the Sum of Two No-Zero Integers](https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/) | Easy | csharp | [solution.cs](solutions/2000-reverse-prefix-of-word/solution.cs) |
 | 1323 | [Maximum 69 Number](https://leetcode.com/problems/maximum-69-number/) | Easy | csharp | [solution.cs](solutions/2006-count-number-of-pairs-with-absolute-difference-k/solution.cs) |
+=======
+>>>>>>> 03f05b9bed28b31a7515fb4c0997f26aa522fcb4
 | 1327 | [List the Products Ordered in a Period](https://leetcode.com/problems/list-the-products-ordered-in-a-period/) | Easy | csharp | [solution.cs](solutions/1984-minimum-difference-between-highest-and-lowest-of-k-scores/solution.cs) |
 | 1342 | [Number of Steps to Reduce a Number to Zero](https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/) | Easy | javascript | [solution.js](solutions/1980-find-unique-binary-string/solution.js) |
 | 1365 | [How Many Numbers Are Smaller Than the Current Number](https://leetcode.com/problems/how-many-numbers-are-smaller-than-the-current-number/) | Easy | csharp | [solution.cs](solutions/1979-find-greatest-common-divisor-of-array/solution.cs) |
@@ -202,6 +205,7 @@ Automatycznie synchronizowane rozwiązania z mojego profilu LeetCode.
 | 1929 | [Concatenation of Array](https://leetcode.com/problems/concatenation-of-array/) | Easy | csharp | [solution.cs](solutions/1402-reducing-dishes/solution.cs) |
 | 1935 | [Maximum Number of Words You Can Type](https://leetcode.com/problems/maximum-number-of-words-you-can-type/) | Easy | csharp | [solution.cs](solutions/1399-count-largest-group/solution.cs) |
 | 1941 | [Check if All Characters Have Equal Number of Occurrences](https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/) | Easy | csharp | [solution.cs](solutions/1365-how-many-numbers-are-smaller-than-the-current-number/solution.cs) |
+<<<<<<< HEAD
 | 1952 | [Three Divisors](https://leetcode.com/problems/three-divisors/) | Easy | mysql | [solution.txt](solutions/1327-list-the-products-ordered-in-a-period/solution.txt) |
 | 1957 | [Delete Characters to Make Fancy String](https://leetcode.com/problems/delete-characters-to-make-fancy-string/) | Easy | csharp | [solution.cs](solutions/1323-maximum-69-number/solution.cs) |
 | 1979 | [Find Greatest Common Divisor of Array](https://leetcode.com/problems/find-greatest-common-divisor-of-array/) | Easy | cpp | [solution.cpp](solutions/1342-number-of-steps-to-reduce-a-number-to-zero/solution.cpp) |
@@ -285,6 +289,8 @@ Automatycznie synchronizowane rozwiązania z mojego profilu LeetCode.
 | 2885 | [Rename Columns](https://leetcode.com/problems/rename-columns/) | Easy | csharp | [solution.cs](solutions/0242-valid-anagram/solution.cs) |
 | 2888 | [Reshape Data: Concatenate](https://leetcode.com/problems/reshape-data-concatenate/) | Easy | csharp | [solution.cs](solutions/0231-power-of-two/solution.cs) |
 | 2894 | [Divisible and Non-divisible Sums Difference](https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/) | Easy | csharp | [solution.cs](solutions/0217-contains-duplicate/solution.cs) |
+=======
+>>>>>>> 03f05b9bed28b31a7515fb4c0997f26aa522fcb4
 | 2900 | [Longest Unequal Adjacent Groups Subsequence I](https://leetcode.com/problems/longest-unequal-adjacent-groups-subsequence-i/) | Easy | csharp | [solution.cs](solutions/0206-reverse-linked-list/solution.cs) |
 | 2918 | [Minimum Equal Sum of Two Arrays After Replacing Zeros](https://leetcode.com/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/) | Medium | csharp | [solution.cs](solutions/0204-count-primes/solution.cs) |
 | 2929 | [Distribute Candies Among Children II](https://leetcode.com/problems/distribute-candies-among-children-ii/) | Medium | bash | [solution.txt](solutions/0195-tenth-line/solution.txt) |
