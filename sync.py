@@ -80,8 +80,12 @@ def save_solution(problem):
     sub_id, lang = get_latest_accepted_submission(problem["slug"])
     if not sub_id:
         return None, None
-    code, lang = get_submission_code(sub_id)
-    ext = EXTENSIONS.get(lang.lower(), "txt")
+    code, lang2 = get_submission_code(sub_id)
+    # preferuj lang2 z details, jeśli istnieje
+    lang = lang2 or lang or "Unknown"
+    # bezpieczne rozszerzenie
+    ext = EXTENSIONS.get(lang.lower(), "txt") if isinstance(lang, str) else "txt"
+
     folder = f"solutions/{problem['frontend_id']:04d}-{problem['slug']}"
     os.makedirs(folder, exist_ok=True)
     file_path = f"{folder}/solution.{ext}"
