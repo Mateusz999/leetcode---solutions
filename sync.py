@@ -1,7 +1,7 @@
 import os
 import requests
 
-LEETCODE_USERNAME = "MvB_Coder"  
+LEETCODE_USERNAME = "MvB_Coder"  # ← Twój login LeetCode
 
 LEETCODE_SESSION = os.environ.get("LEETCODE_SESSION")
 LEETCODE_CSRF = os.environ.get("LEETCODE_CSRF")
@@ -110,26 +110,30 @@ def get_submission_code(submission_id):
 
 def save_solution(problem):
     submission_id, lang = get_latest_accepted_submission(problem["slug"])
-    if not submission_id:
-        return None, None
-    code, lang = get_submission_code(submission_id)
-    ext = EXTENSIONS.get(lang.lower(), "txt")
     folder_name = f"solutions/{problem['frontend_id']:04d}-{problem['slug']}"
     os.makedirs(folder_name, exist_ok=True)
+
+    if not submission_id:
+        # Zapisz pusty plik, żeby katalog zawsze powstał
+        file_path = f"{folder_name}/solution.txt"
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write("# Brak zaakceptowanego rozwiązania lub sesja wygasła\n")
+        return file_path, "Unknown"
+
+    code, lang = get_submission_code(submission_id)
+    ext = EXTENSIONS.get(lang.lower(), "txt")
     file_path = f"{folder_name}/solution.{ext}"
     with open(file_path, "w", encoding="utf-8") as f:
-        f.write(code)
+        f.write(code if code else "# Brak kodu\n")
     return file_path, lang
 
 def generate_readme(problems, entries):
     rows = []
     for p, entry in zip(sorted(problems, key=lambda x: int(x["frontend_id"])), entries):
-        if not entry or not entry[0]:
-            continue
+        file_path, lang = entry
         title = p["title"]
         link = f"https://leetcode.com/problems/{p['slug']}/"
         difficulty = ["Easy", "Medium", "Hard"][p["difficulty"] - 1]
-        file_path, lang = entry
         rows.append(f"| {p['frontend_id']} | [{title}]({link}) | {difficulty} | {lang} | [{os.path.basename(file_path)}]({file_path}) |")
 
     content = f"""# 🧠 LeetCode Solutions by {LEETCODE_USERNAME}
