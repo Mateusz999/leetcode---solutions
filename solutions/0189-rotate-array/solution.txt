@@ -1,1 +1,1 @@
-# Brak zaakceptowanego rozwiązania lub sesja wygasła
+# Error
