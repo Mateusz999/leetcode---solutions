@@ -2,9 +2,8 @@ import os
 import requests
 
 LEETCODE_USERNAME = "MvB_Coder"
-
-LEETCODE_SESSION = os.environ.get("LEETCODE_SESSION") or "TWOJ_LEETCODE_SESSION"
-LEETCODE_CSRF = os.environ.get("LEETCODE_CSRF") or "TWOJ_CSRF_TOKEN"
+LEETCODE_SESSION = os.environ.get("LEETCODE_SESSION") or "TWOJ_SESSION"
+LEETCODE_CSRF = os.environ.get("LEETCODE_CSRF") or "TWOJ_CSRF"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
@@ -14,14 +13,14 @@ HEADERS = {
 }
 
 EXTENSIONS = {
-    "python3": "py", "java": "java", "cpp": "cpp", "c": "c", "csharp": "cs",
-    "javascript": "js", "typescript": "ts", "golang": "go", "rust": "rs",
-    "kotlin": "kt", "swift": "swift", "ruby": "rb", "php": "php"
+    "cpp": "cpp", "rust": "rs", "csharp": "cs", "java": "java",
+    "javascript": "js", "sql": "sql"
 }
 
 def get_accepted_problems():
     url = "https://leetcode.com/api/problems/all/"
     r = requests.get(url, headers=HEADERS)
+    r.raise_for_status()
     data = r.json()
     return [
         {
@@ -34,30 +33,19 @@ def get_accepted_problems():
         if q.get("status") == "ac"
     ]
 
-def get_all_submissions(slug):
-    """Pobierz wszystkie submissions dla problemu (paginacja)."""
-    all_subs, offset, limit = [], 0, 50
-    while True:
-        query = '''
-        query submissionList($questionSlug: String!, $offset: Int!, $limit: Int!) {
-          submissionList(questionSlug: $questionSlug, offset: $offset, limit: $limit) {
-            submissions { id lang statusDisplay timestamp }
-          }
-        }
-        '''
-        vars_ = {"questionSlug": slug, "offset": offset, "limit": limit}
-        r = requests.post("https://leetcode.com/graphql", headers=HEADERS,
-                          json={"query": query, "variables": vars_})
-        data = r.json()
-        subs = data.get("data", {}).get("submissionList", {}).get("submissions", [])
-        if not subs:
-            break
-        all_subs.extend(subs)
-        offset += limit
-    return all_subs
-
 def get_latest_accepted_submission(slug):
-    subs = get_all_submissions(slug)
+    query = '''
+    query submissionList($questionSlug: String!, $offset: Int!, $limit: Int!) {
+      submissionList(questionSlug: $questionSlug, offset: $offset, limit: $limit) {
+        submissions { id lang statusDisplay timestamp }
+      }
+    }
+    '''
+    vars_ = {"questionSlug": slug, "offset": 0, "limit": 50}
+    r = requests.post("https://leetcode.com/graphql", headers=HEADERS,
+                      json={"query": query, "variables": vars_})
+    data = r.json()
+    subs = data.get("data", {}).get("submissionList", {}).get("submissions", [])
     accepted = [s for s in subs if s.get("statusDisplay") == "Accepted"]
     if not accepted:
         return None, None
@@ -67,24 +55,28 @@ def get_latest_accepted_submission(slug):
 def get_submission_code(submission_id):
     query = '''
     query submissionDetails($submissionId: Int!) {
-      submissionDetails(submissionId: $submissionId) { code lang }
+      submissionDetails(submissionId: $submissionId) {
+        code
+        lang { name }
+      }
     }
     '''
     r = requests.post("https://leetcode.com/graphql", headers=HEADERS,
                       json={"query": query, "variables": {"submissionId": submission_id}})
     data = r.json()
     det = data.get("data", {}).get("submissionDetails", {})
-    return det.get("code"), det.get("lang")
+    code = det.get("code")
+    lang_node = det.get("lang")
+    lang = lang_node.get("name") if isinstance(lang_node, dict) else lang_node
+    return code, lang
 
 def save_solution(problem):
     sub_id, lang = get_latest_accepted_submission(problem["slug"])
     if not sub_id:
         return None, None
     code, lang2 = get_submission_code(sub_id)
-    # preferuj lang2 z details, jeśli istnieje
-    lang = lang2 or lang or "Unknown"
-    # bezpieczne rozszerzenie
-    ext = EXTENSIONS.get(lang.lower(), "txt") if isinstance(lang, str) else "txt"
+    lang = (lang2 or lang or "Unknown").lower()
+    ext = EXTENSIONS.get(lang, "txt")
 
     folder = f"solutions/{problem['frontend_id']:04d}-{problem['slug']}"
     os.makedirs(folder, exist_ok=True)
@@ -108,7 +100,7 @@ def generate_readme(problems, entries):
         )
     content = f"""# 🧠 LeetCode Solutions by {LEETCODE_USERNAME}
 
-Automatycznie synchronizowane rozwiązania z mojego profilu LeetCode.
+Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 
 ## 📊 Lista zadań
 
