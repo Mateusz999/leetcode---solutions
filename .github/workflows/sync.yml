@@ -1,0 +1,33 @@
+name: Sync LeetCode Stats
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # codziennie o 6:00 rano
+  workflow_dispatch:      # ręczne uruchomienie
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run sync script
+        run: python sync.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "leetcode-bot"
+          git config --global user.email "bot@example.com"
+          git add README.md
+          git commit -m "Update LeetCode stats"
+          git push

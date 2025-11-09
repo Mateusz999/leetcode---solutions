@@ -50,7 +50,5 @@ Automatycznie synchronizowane rozwiązania z mojego profilu LeetCode.
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(content)
 
-# 🧪 Uruchomienie
 stats = get_user_stats("MvB_Coder")
 generate_readme(stats)
-print("README.md wygenerowany!")
