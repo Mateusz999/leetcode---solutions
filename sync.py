@@ -1,7 +1,7 @@
 import os
 import requests
 
-LEETCODE_USERNAME = "MvB_Coder"  # ← Twój login LeetCode
+LEETCODE_USERNAME = "MvB_Coder"  
 
 LEETCODE_SESSION = os.environ.get("LEETCODE_SESSION")
 LEETCODE_CSRF = os.environ.get("LEETCODE_CSRF")
