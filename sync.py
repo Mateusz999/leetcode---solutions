@@ -1,7 +1,7 @@
 import os
 import requests
 
-LEETCODE_USERNAME = "MvB_Coder"  # ← Zmień na swój login LeetCode
+LEETCODE_USERNAME = "MvB_Coder"  # ← Twój login LeetCode
 
 LEETCODE_SESSION = os.environ.get("LEETCODE_SESSION")
 LEETCODE_CSRF = os.environ.get("LEETCODE_CSRF")
@@ -14,19 +14,19 @@ HEADERS = {
 }
 
 EXTENSIONS = {
-    "Python3": "py",
-    "Java": "java",
-    "C++": "cpp",
-    "C": "c",
-    "C#": "cs",
-    "JavaScript": "js",
-    "TypeScript": "ts",
-    "Go": "go",
-    "Rust": "rs",
-    "Kotlin": "kt",
-    "Swift": "swift",
-    "Ruby": "rb",
-    "PHP": "php"
+    "python3": "py",
+    "java": "java",
+    "cpp": "cpp",
+    "c": "c",
+    "csharp": "cs",
+    "javascript": "js",
+    "typescript": "ts",
+    "golang": "go",
+    "rust": "rs",
+    "kotlin": "kt",
+    "swift": "swift",
+    "ruby": "rb",
+    "php": "php"
 }
 
 def get_accepted_problems():
@@ -45,35 +45,55 @@ def get_accepted_problems():
     ]
     return accepted
 
-def get_solution_code(slug):
+def get_latest_accepted_submission(slug):
     query = '''
-    query questionEditorData($titleSlug: String!) {
-      question(titleSlug: $titleSlug) {
-        codeSnippets {
+    query submissionList($titleSlug: String!, $offset: Int!, $limit: Int!) {
+      submissionList(titleSlug: $titleSlug, offset: $offset, limit: $limit) {
+        submissions {
+          id
           lang
-          code
+          statusDisplay
+          timestamp
         }
       }
     }
     '''
-    variables = {"titleSlug": slug}
+    variables = {"titleSlug": slug, "offset": 0, "limit": 20}
     response = requests.post(
         "https://leetcode.com/graphql",
         headers=HEADERS,
         json={"query": query, "variables": variables}
     )
-    snippets = response.json()["data"]["question"]["codeSnippets"]
-    for snippet in snippets:
-        if snippet["lang"] == "Python3":  # Prefer Python3
-            return snippet["code"], snippet["lang"]
-    # Fallback to first available
-    if snippets:
-        return snippets[0]["code"], snippets[0]["lang"]
-    return "# Brak kodu", "Unknown"
+    submissions = response.json()["data"]["submissionList"]["submissions"]
+    for sub in submissions:
+        if sub["statusDisplay"] == "Accepted":
+            return sub["id"], sub["lang"]
+    return None, None
+
+def get_submission_code(submission_id):
+    query = '''
+    query submissionDetails($submissionId: Int!) {
+      submissionDetails(submissionId: $submissionId) {
+        code
+        lang
+      }
+    }
+    '''
+    variables = {"submissionId": submission_id}
+    response = requests.post(
+        "https://leetcode.com/graphql",
+        headers=HEADERS,
+        json={"query": query, "variables": variables}
+    )
+    details = response.json()["data"]["submissionDetails"]
+    return details["code"], details["lang"]
 
 def save_solution(problem):
-    code, lang = get_solution_code(problem["slug"])
-    ext = EXTENSIONS.get(lang, "txt")
+    submission_id, lang = get_latest_accepted_submission(problem["slug"])
+    if not submission_id:
+        return None, None
+    code, lang = get_submission_code(submission_id)
+    ext = EXTENSIONS.get(lang.lower(), "txt")
     folder_name = f"solutions/{problem['frontend_id']:04d}-{problem['slug']}"
     os.makedirs(folder_name, exist_ok=True)
     file_path = f"{folder_name}/solution.{ext}"
@@ -84,6 +104,8 @@ def save_solution(problem):
 def generate_readme(problems, entries):
     rows = []
     for p, entry in zip(sorted(problems, key=lambda x: int(x["frontend_id"])), entries):
+        if not entry[0]:
+            continue
         title = p["title"]
         link = f"https://leetcode.com/problems/{p['slug']}/"
         difficulty = ["Easy", "Medium", "Hard"][p["difficulty"] - 1]
