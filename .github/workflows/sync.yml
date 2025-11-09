@@ -25,9 +25,10 @@ jobs:
         run: python sync.py
 
       - name: Commit and push changes
-        run: |
-          git config --global user.name "leetcode-bot"
-          git config --global user.email "bot@example.com"
-          git add README.md
-          git commit -m "Update LeetCode stats"
-          git push
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: leetcode-bot
+          author_email: bot@example.com
+          message: "Update LeetCode stats"
+          add: "README.md"
+
