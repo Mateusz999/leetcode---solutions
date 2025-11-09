@@ -31,4 +31,4 @@ jobs:
           author_email: bot@example.com
           message: "Update LeetCode stats"
           add: "README.md"
-
+          push: true
