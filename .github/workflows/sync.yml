@@ -1,13 +1,17 @@
-name: Sync LeetCode Stats
+name: Sync LeetCode Solutions
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # codziennie o 6:00 rano 
-  workflow_dispatch:      # ręczne uruchomienie
+    - cron: '0 6 * * *'  # codziennie o 6:00 rano
+  workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+
+    env:
+      LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
+      LEETCODE_CSRF: ${{ secrets.LEETCODE_CSRF }}
 
     steps:
       - name: Checkout repo
@@ -29,6 +33,6 @@ jobs:
         with:
           author_name: leetcode-bot
           author_email: bot@example.com
-          message: "Update LeetCode stats"
-          add: "README.md"
+          message: "Update LeetCode solutions"
+          add: "README.md solutions/"
           push: true
