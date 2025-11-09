@@ -1,1 +1,1 @@
-# Write your MySQL query statement below
+# Brak zaakceptowanego rozwiązania lub sesja wygasła

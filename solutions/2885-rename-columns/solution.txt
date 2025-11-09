@@ -1,4 +1,1 @@
-import pandas as pd
-
-def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
-    
+# Brak zaakceptowanego rozwiązania lub sesja wygasła
