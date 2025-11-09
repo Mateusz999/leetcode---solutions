@@ -64,7 +64,17 @@ def get_latest_accepted_submission(slug):
         headers=HEADERS,
         json={"query": query, "variables": variables}
     )
-    submissions = response.json()["data"]["submissionList"]["submissions"]
+
+    data = response.json()
+
+    if "errors" in data:
+        print(f"❌ GraphQL error for {slug}: {data['errors']}")
+        return None, None
+    if "data" not in data or not data["data"].get("submissionList"):
+        print(f"❌ No data returned for {slug}. Response: {data}")
+        return None, None
+
+    submissions = data["data"]["submissionList"]["submissions"]
     for sub in submissions:
         if sub["statusDisplay"] == "Accepted":
             return sub["id"], sub["lang"]
@@ -85,7 +95,17 @@ def get_submission_code(submission_id):
         headers=HEADERS,
         json={"query": query, "variables": variables}
     )
-    details = response.json()["data"]["submissionDetails"]
+
+    data = response.json()
+
+    if "errors" in data:
+        print(f"❌ Error fetching submission {submission_id}: {data['errors']}")
+        return "# Error", "Unknown"
+    if "data" not in data or not data["data"].get("submissionDetails"):
+        print(f"❌ No submission details for {submission_id}. Response: {data}")
+        return "# Error", "Unknown"
+
+    details = data["data"]["submissionDetails"]
     return details["code"], details["lang"]
 
 def save_solution(problem):
@@ -104,7 +124,7 @@ def save_solution(problem):
 def generate_readme(problems, entries):
     rows = []
     for p, entry in zip(sorted(problems, key=lambda x: int(x["frontend_id"])), entries):
-        if not entry[0]:
+        if not entry or not entry[0]:
             continue
         title = p["title"]
         link = f"https://leetcode.com/problems/{p['slug']}/"
