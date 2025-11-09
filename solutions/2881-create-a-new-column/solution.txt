@@ -1,0 +1,6 @@
+import pandas as pd
+
+def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
+    emp_copy = employees.copy()
+    emp_copy.loc[:, 'bonus'] = emp_copy['salary'] * 2
+    return emp_copy
