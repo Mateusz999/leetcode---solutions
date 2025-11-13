@@ -89,6 +89,12 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 441 | [Arranging Coins](https://leetcode.com/problems/arranging-coins/) | Easy | csharp | [solution.cs](solutions/2769-find-the-maximum-achievable-number/solution.cs) |
 | 470 | [Implement Rand10() Using Rand7()](https://leetcode.com/problems/implement-rand10-using-rand7/) | Medium | javascript | [solution.js](solutions/2695-array-wrapper/solution.js) |
 | 498 | [Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/) | Medium | javascript | [solution.js](solutions/2648-generate-fibonacci-sequence/solution.js) |
+| 509 | [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) | Easy | csharp | [solution.cs](solutions/2657-find-the-prefix-common-array-of-two-arrays/solution.cs) |
+| 511 | [Game Play Analysis I](https://leetcode.com/problems/game-play-analysis-i/) | Easy | csharp | [solution.cs](solutions/2652-sum-multiples/solution.cs) |
+| 520 | [Detect Capital](https://leetcode.com/problems/detect-capital/) | Easy | javascript | [solution.js](solutions/2635-apply-transform-over-each-element-in-array/solution.js) |
+| 557 | [Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/) | Easy | javascript | [solution.js](solutions/2627-debounce/solution.js) |
+| 561 | [Array Partition](https://leetcode.com/problems/array-partition/) | Easy | javascript | [solution.js](solutions/2621-sleep/solution.js) |
+| 577 | [Employee Bonus](https://leetcode.com/problems/employee-bonus/) | Easy | csharp | [solution.cs](solutions/2574-left-and-right-sum-differences/solution.cs) |
 | 584 | [Find Customer Referee](https://leetcode.com/problems/find-customer-referee/) | Easy | csharp | [solution.cs](solutions/2595-number-of-even-and-odd-bits/solution.cs) |
 | 595 | [Big Countries](https://leetcode.com/problems/big-countries/) | Easy | csharp | [solution.cs](solutions/2545-sort-the-students-by-their-kth-score/solution.cs) |
 | 605 | [Can Place Flowers](https://leetcode.com/problems/can-place-flowers/) | Easy | cpp | [solution.cpp](solutions/2535-difference-between-element-sum-and-digit-sum-of-an-array/solution.cpp) |
@@ -115,11 +121,6 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 1021 | [Remove Outermost Parentheses](https://leetcode.com/problems/remove-outermost-parentheses/) | Easy | csharp | [solution.cs](solutions/2221-find-triangular-sum-of-an-array/solution.cs) |
 | 1025 | [Divisor Game](https://leetcode.com/problems/divisor-game/) | Easy | csharp | [solution.cs](solutions/2220-minimum-bit-flips-to-convert-number/solution.cs) |
 | 1050 | [Actors and Directors Who Cooperated At Least Three Times](https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/) | Easy | csharp | [solution.cs](solutions/2200-find-all-k-distant-indices-in-an-array/solution.cs) |
-| 1051 | [Height Checker](https://leetcode.com/problems/height-checker/) | Easy | csharp | [solution.cs](solutions/2206-divide-array-into-equal-pairs/solution.cs) |
-| 1068 | [Product Sales Analysis I](https://leetcode.com/problems/product-sales-analysis-i/) | Easy | csharp | [solution.cs](solutions/2181-merge-nodes-in-between-zeros/solution.cs) |
-| 1071 | [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/) | Easy | csharp | [solution.cs](solutions/2185-counting-words-with-a-given-prefix/solution.cs) |
-| 1075 | [Project Employees I](https://leetcode.com/problems/project-employees-i/) | Easy | cpp | [solution.cpp](solutions/2169-count-operations-to-obtain-zero/solution.cpp) |
-| 1108 | [Defanging an IP Address](https://leetcode.com/problems/defanging-an-ip-address/) | Easy | csharp | [solution.cs](solutions/2161-partition-array-according-to-given-pivot/solution.cs) |
 | 1114 | [Print in Order](https://leetcode.com/problems/print-in-order/) | Easy | cpp | [solution.cpp](solutions/2160-minimum-sum-of-four-digit-number-after-splitting-digits/solution.cpp) |
 | 1122 | [Relative Sort Array](https://leetcode.com/problems/relative-sort-array/) | Easy | csharp | [solution.cs](solutions/2138-divide-a-string-into-groups-of-size-k/solution.cs) |
 | 1128 | [Number of Equivalent Domino Pairs](https://leetcode.com/problems/number-of-equivalent-domino-pairs/) | Easy | csharp | [solution.cs](solutions/2125-number-of-laser-beams-in-a-bank/solution.cs) |
@@ -149,6 +150,29 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 1464 | [Maximum Product of Two Elements in an Array](https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/) | Easy | csharp | [solution.cs](solutions/1859-sorting-the-sentence/solution.cs) |
 | 1470 | [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/) | Easy | csharp | [solution.cs](solutions/1833-maximum-ice-cream-bars/solution.cs) |
 | 1480 | [Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/) | Easy | csharp | [solution.cs](solutions/1816-truncate-sentence/solution.cs) |
+| 1484 | [Group Sold Products By The Date](https://leetcode.com/problems/group-sold-products-by-the-date/) | Easy | csharp | [solution.cs](solutions/1828-queries-on-number-of-points-inside-a-circle/solution.cs) |
+| 1486 | [XOR Operation in an Array](https://leetcode.com/problems/xor-operation-in-an-array/) | Easy | csharp | [solution.cs](solutions/1812-determine-color-of-a-chessboard-square/solution.cs) |
+| 1493 | [Longest Subarray of 1's After Deleting One Element](https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/) | Medium | csharp | [solution.cs](solutions/1792-maximum-average-pass-ratio/solution.cs) |
+| 1510 | [Stone Game IV](https://leetcode.com/problems/stone-game-iv/) | Hard | csharp | [solution.cs](solutions/1791-find-center-of-star-graph/solution.cs) |
+| 1512 | [Number of Good Pairs](https://leetcode.com/problems/number-of-good-pairs/) | Easy | mysql | [solution.txt](solutions/1757-recyclable-and-low-fat-products/solution.txt) |
+| 1528 | [Shuffle String](https://leetcode.com/problems/shuffle-string/) | Easy | csharp | [solution.cs](solutions/1773-count-items-matching-a-rule/solution.cs) |
+| 1534 | [Count Good Triplets](https://leetcode.com/problems/count-good-triplets/) | Easy | csharp | [solution.cs](solutions/1769-minimum-number-of-operations-to-move-all-balls-to-each-box/solution.cs) |
+| 1550 | [Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds/) | Easy | csharp | [solution.cs](solutions/1768-merge-strings-alternately/solution.cs) |
+| 1551 | [Minimum Operations to Make Array Equal](https://leetcode.com/problems/minimum-operations-to-make-array-equal/) | Medium | mysql | [solution.txt](solutions/1741-find-total-time-spent-by-each-employee/solution.txt) |
+| 1561 | [Maximum Number of Coins You Can Get](https://leetcode.com/problems/maximum-number-of-coins-you-can-get/) | Medium | mysql | [solution.txt](solutions/1729-find-followers-count/solution.txt) |
+| 1572 | [Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum/) | Easy | csharp | [solution.cs](solutions/1742-maximum-number-of-balls-in-a-box/solution.cs) |
+| 1587 | [Bank Account Summary II](https://leetcode.com/problems/bank-account-summary-ii/) | Easy | csharp | [solution.cs](solutions/1720-decode-xored-array/solution.cs) |
+| 1588 | [Sum of All Odd Length Subarrays](https://leetcode.com/problems/sum-of-all-odd-length-subarrays/) | Easy | mysql | [solution.txt](solutions/1693-daily-leads-and-partners/solution.txt) |
+| 1603 | [Design Parking System](https://leetcode.com/problems/design-parking-system/) | Easy | mysql | [solution.txt](solutions/1683-invalid-tweets/solution.txt) |
+| 1637 | [Widest Vertical Area Between Two Points Containing No Points](https://leetcode.com/problems/widest-vertical-area-between-two-points-containing-no-points/) | Easy | cpp | [solution.cpp](solutions/1716-calculate-money-in-leetcode-bank/solution.cpp) |
+| 1641 | [Count Sorted Vowel Strings](https://leetcode.com/problems/count-sorted-vowel-strings/) | Medium | mysql | [solution.txt](solutions/1667-fix-names-in-a-table/solution.txt) |
+| 1662 | [Check If Two String Arrays are Equivalent](https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/) | Easy | csharp | [solution.cs](solutions/1689-partitioning-into-minimum-number-of-deci-binary-numbers/solution.cs) |
+| 1667 | [Fix Names in a Table](https://leetcode.com/problems/fix-names-in-a-table/) | Easy | cpp | [solution.cpp](solutions/1688-count-of-matches-in-tournament/solution.cpp) |
+| 1672 | [Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/) | Easy | csharp | [solution.cs](solutions/1678-goal-parser-interpretation/solution.cs) |
+| 1678 | [Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation/) | Easy | csharp | [solution.cs](solutions/1672-richest-customer-wealth/solution.cs) |
+| 1683 | [Invalid Tweets](https://leetcode.com/problems/invalid-tweets/) | Easy | csharp | [solution.cs](solutions/1684-count-the-number-of-consistent-strings/solution.cs) |
+| 1684 | [Count the Number of Consistent Strings](https://leetcode.com/problems/count-the-number-of-consistent-strings/) | Easy | csharp | [solution.cs](solutions/1662-check-if-two-string-arrays-are-equivalent/solution.cs) |
+| 1688 | [Count of Matches in Tournament](https://leetcode.com/problems/count-of-matches-in-tournament/) | Easy | cpp | [solution.cpp](solutions/1641-count-sorted-vowel-strings/solution.cpp) |
 | 1689 | [Partitioning Into Minimum Number Of Deci-Binary Numbers](https://leetcode.com/problems/partitioning-into-minimum-number-of-deci-binary-numbers/) | Medium | csharp | [solution.cs](solutions/1637-widest-vertical-area-between-two-points-containing-no-points/solution.cs) |
 | 1693 | [Daily Leads and Partners](https://leetcode.com/problems/daily-leads-and-partners/) | Easy | mysql | [solution.txt](solutions/1587-bank-account-summary-ii/solution.txt) |
 | 1716 | [Calculate Money in Leetcode Bank](https://leetcode.com/problems/calculate-money-in-leetcode-bank/) | Easy | csharp | [solution.cs](solutions/1603-design-parking-system/solution.cs) |
@@ -157,12 +181,6 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 1741 | [Find Total Time Spent by Each Employee](https://leetcode.com/problems/find-total-time-spent-by-each-employee/) | Easy | csharp | [solution.cs](solutions/1572-matrix-diagonal-sum/solution.cs) |
 | 1742 | [Maximum Number of Balls in a Box](https://leetcode.com/problems/maximum-number-of-balls-in-a-box/) | Easy | csharp | [solution.cs](solutions/1551-minimum-operations-to-make-array-equal/solution.cs) |
 | 1757 | [Recyclable and Low Fat Products](https://leetcode.com/problems/recyclable-and-low-fat-products/) | Easy | csharp | [solution.cs](solutions/1534-count-good-triplets/solution.cs) |
-| 1768 | [Merge Strings Alternately](https://leetcode.com/problems/merge-strings-alternately/) | Easy | csharp | [solution.cs](solutions/1528-shuffle-string/solution.cs) |
-| 1769 | [Minimum Number of Operations to Move All Balls to Each Box](https://leetcode.com/problems/minimum-number-of-operations-to-move-all-balls-to-each-box/) | Medium | csharp | [solution.cs](solutions/1512-number-of-good-pairs/solution.cs) |
-| 1773 | [Count Items Matching a Rule](https://leetcode.com/problems/count-items-matching-a-rule/) | Easy | mysql | [solution.txt](solutions/1484-group-sold-products-by-the-date/solution.txt) |
-| 1791 | [Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph/) | Easy | csharp | [solution.cs](solutions/1510-stone-game-iv/solution.cs) |
-| 1792 | [Maximum Average Pass Ratio](https://leetcode.com/problems/maximum-average-pass-ratio/) | Medium | csharp | [solution.cs](solutions/1486-xor-operation-in-an-array/solution.cs) |
-| 1812 | [Determine Color of a Chessboard Square](https://leetcode.com/problems/determine-color-of-a-chessboard-square/) | Easy | csharp | [solution.cs](solutions/1480-running-sum-of-1d-array/solution.cs) |
 | 1816 | [Truncate Sentence](https://leetcode.com/problems/truncate-sentence/) | Easy | csharp | [solution.cs](solutions/1493-longest-subarray-of-1s-after-deleting-one-element/solution.cs) |
 | 1828 | [Queries on Number of Points Inside a Circle](https://leetcode.com/problems/queries-on-number-of-points-inside-a-circle/) | Medium | csharp | [solution.cs](solutions/1470-shuffle-the-array/solution.cs) |
 | 1833 | [Maximum Ice Cream Bars](https://leetcode.com/problems/maximum-ice-cream-bars/) | Medium | csharp | [solution.cs](solutions/1464-maximum-product-of-two-elements-in-an-array/solution.cs) |
@@ -209,6 +227,12 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 2302 | [Count Subarrays With Score Less Than K](https://leetcode.com/problems/count-subarrays-with-score-less-than-k/) | Hard | csharp | [solution.cs](solutions/1004-max-consecutive-ones-iii/solution.cs) |
 | 2309 | [Greatest English Letter in Upper and Lower Case](https://leetcode.com/problems/greatest-english-letter-in-upper-and-lower-case/) | Easy | csharp | [solution.cs](solutions/0991-broken-calculator/solution.cs) |
 | 2325 | [Decode the Message](https://leetcode.com/problems/decode-the-message/) | Easy | csharp | [solution.cs](solutions/0989-add-to-array-form-of-integer/solution.cs) |
+| 2356 | [Number of Unique Subjects Taught by Each Teacher](https://leetcode.com/problems/number-of-unique-subjects-taught-by-each-teacher/) | Easy | csharp | [solution.cs](solutions/0509-fibonacci-number/solution.cs) |
+| 2367 | [Number of Arithmetic Triplets](https://leetcode.com/problems/number-of-arithmetic-triplets/) | Easy | csharp | [solution.cs](solutions/0938-range-sum-of-bst/solution.cs) |
+| 2373 | [Largest Local Values in a Matrix](https://leetcode.com/problems/largest-local-values-in-a-matrix/) | Easy | csharp | [solution.cs](solutions/0470-implement-rand10-using-rand7/solution.cs) |
+| 2390 | [Removing Stars From a String](https://leetcode.com/problems/removing-stars-from-a-string/) | Medium | csharp | [solution.cs](solutions/0869-reordered-power-of-2/solution.cs) |
+| 2396 | [Strictly Palindromic Number](https://leetcode.com/problems/strictly-palindromic-number/) | Medium | csharp | [solution.cs](solutions/0832-flipping-an-image/solution.cs) |
+| 2413 | [Smallest Even Multiple](https://leetcode.com/problems/smallest-even-multiple/) | Easy | csharp | [solution.cs](solutions/0810-chalkboard-xor-game/solution.cs) |
 | 2418 | [Sort the People](https://leetcode.com/problems/sort-the-people/) | Easy | csharp | [solution.cs](solutions/0807-max-increase-to-keep-city-skyline/solution.cs) |
 | 2427 | [Number of Common Factors](https://leetcode.com/problems/number-of-common-factors/) | Easy | csharp | [solution.cs](solutions/0804-unique-morse-code-words/solution.cs) |
 | 2433 | [Find The Original Array of Prefix Xor](https://leetcode.com/problems/find-the-original-array-of-prefix-xor/) | Medium | csharp | [solution.cs](solutions/0790-domino-and-tromino-tiling/solution.cs) |
@@ -217,18 +241,6 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 2469 | [Convert the Temperature](https://leetcode.com/problems/convert-the-temperature/) | Easy | csharp | [solution.cs](solutions/0728-self-dividing-numbers/solution.cs) |
 | 2482 | [Difference Between Ones and Zeros in Row and Column](https://leetcode.com/problems/difference-between-ones-and-zeros-in-row-and-column/) | Medium | csharp | [solution.cs](solutions/0722-remove-comments/solution.cs) |
 | 2485 | [Find the Pivot Integer](https://leetcode.com/problems/find-the-pivot-integer/) | Easy | csharp | [solution.cs](solutions/0648-replace-words/solution.cs) |
-| 2520 | [Count the Digits That Divide a Number](https://leetcode.com/problems/count-the-digits-that-divide-a-number/) | Easy | mysql | [solution.txt](solutions/0627-swap-sex-of-employees/solution.txt) |
-| 2535 | [Difference Between Element Sum and Digit Sum of an Array](https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/) | Easy | mysql | [solution.txt](solutions/0620-not-boring-movies/solution.txt) |
-| 2545 | [Sort the Students by Their Kth Score](https://leetcode.com/problems/sort-the-students-by-their-kth-score/) | Medium | mysql | [solution.txt](solutions/0619-biggest-single-number/solution.txt) |
-| 2574 | [Left and Right Sum Differences](https://leetcode.com/problems/left-and-right-sum-differences/) | Easy | mysql | [solution.txt](solutions/0610-triangle-judgement/solution.txt) |
-| 2595 | [Number of Even and Odd Bits](https://leetcode.com/problems/number-of-even-and-odd-bits/) | Easy | csharp | [solution.cs](solutions/0605-can-place-flowers/solution.cs) |
-| 2621 | [Sleep](https://leetcode.com/problems/sleep/) | Easy | mysql | [solution.txt](solutions/0595-big-countries/solution.txt) |
-| 2627 | [Debounce](https://leetcode.com/problems/debounce/) | Medium | mysql | [solution.txt](solutions/0584-find-customer-referee/solution.txt) |
-| 2635 | [Apply Transform Over Each Element in Array](https://leetcode.com/problems/apply-transform-over-each-element-in-array/) | Easy | mysql | [solution.txt](solutions/0577-employee-bonus/solution.txt) |
-| 2648 | [Generate Fibonacci Sequence](https://leetcode.com/problems/generate-fibonacci-sequence/) | Easy | csharp | [solution.cs](solutions/0561-array-partition/solution.cs) |
-| 2652 | [Sum Multiples](https://leetcode.com/problems/sum-multiples/) | Easy | csharp | [solution.cs](solutions/0557-reverse-words-in-a-string-iii/solution.cs) |
-| 2657 | [Find the Prefix Common Array of Two Arrays](https://leetcode.com/problems/find-the-prefix-common-array-of-two-arrays/) | Medium | csharp | [solution.cs](solutions/0520-detect-capital/solution.cs) |
-| 2695 | [Array Wrapper](https://leetcode.com/problems/array-wrapper/) | Easy | csharp | [solution.cs](solutions/0498-diagonal-traverse/solution.cs) |
 | 2703 | [Return Length of Arguments Passed](https://leetcode.com/problems/return-length-of-arguments-passed/) | Easy | csharp | [solution.cs](solutions/0441-arranging-coins/solution.cs) |
 | 2715 | [Timeout Cancellation](https://leetcode.com/problems/timeout-cancellation/) | Easy | csharp | [solution.cs](solutions/0415-add-strings/solution.cs) |
 | 2723 | [Add Two Promises](https://leetcode.com/problems/add-two-promises/) | Easy | csharp | [solution.cs](solutions/0414-third-maximum-number/solution.cs) |
@@ -269,6 +281,14 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 3120 | [Count the Number of Special Characters I](https://leetcode.com/problems/count-the-number-of-special-characters-i/) | Easy | csharp | [solution.cs](solutions/0151-reverse-words-in-a-string/solution.cs) |
 | 3146 | [Permutation Difference between Two Strings](https://leetcode.com/problems/permutation-difference-between-two-strings/) | Easy | csharp | [solution.cs](solutions/0136-single-number/solution.cs) |
 | 3162 | [Find the Number of Good Pairs I](https://leetcode.com/problems/find-the-number-of-good-pairs-i/) | Easy | csharp | [solution.cs](solutions/0135-candy/solution.cs) |
+| 3174 | [Clear Digits](https://leetcode.com/problems/clear-digits/) | Easy | csharp | [solution.cs](solutions/0125-valid-palindrome/solution.cs) |
+| 3190 | [Find Minimum Operations to Make All Elements Divisible by Three](https://leetcode.com/problems/find-minimum-operations-to-make-all-elements-divisible-by-three/) | Easy | csharp | [solution.cs](solutions/0121-best-time-to-buy-and-sell-stock/solution.cs) |
+| 3194 | [Minimum Average of Smallest and Largest Elements](https://leetcode.com/problems/minimum-average-of-smallest-and-largest-elements/) | Easy | csharp | [solution.cs](solutions/0112-path-sum/solution.cs) |
+| 3195 | [Find the Minimum Area to Cover All Ones I](https://leetcode.com/problems/find-the-minimum-area-to-cover-all-ones-i/) | Medium | csharp | [solution.cs](solutions/0108-convert-sorted-array-to-binary-search-tree/solution.cs) |
+| 3232 | [Find if Digit Game Can Be Won](https://leetcode.com/problems/find-if-digit-game-can-be-won/) | Easy | csharp | [solution.cs](solutions/0104-maximum-depth-of-binary-tree/solution.cs) |
+| 3248 | [Snake in Matrix](https://leetcode.com/problems/snake-in-matrix/) | Easy | csharp | [solution.cs](solutions/0101-symmetric-tree/solution.cs) |
+| 3264 | [Final Array State After K Multiplication Operations I](https://leetcode.com/problems/final-array-state-after-k-multiplication-operations-i/) | Easy | csharp | [solution.cs](solutions/0100-same-tree/solution.cs) |
+| 3280 | [Convert Date to Binary](https://leetcode.com/problems/convert-date-to-binary/) | Easy | csharp | [solution.cs](solutions/0094-binary-tree-inorder-traversal/solution.cs) |
 | 3285 | [Find Indices of Stable Mountains](https://leetcode.com/problems/find-indices-of-stable-mountains/) | Easy | csharp | [solution.cs](solutions/0088-merge-sorted-array/solution.cs) |
 | 3289 | [The Two Sneaky Numbers of Digitville](https://leetcode.com/problems/the-two-sneaky-numbers-of-digitville/) | Easy | csharp | [solution.cs](solutions/0083-remove-duplicates-from-sorted-list/solution.cs) |
 | 3300 | [Minimum Element After Replacement With Digit Sum](https://leetcode.com/problems/minimum-element-after-replacement-with-digit-sum/) | Easy | csharp | [solution.cs](solutions/0080-remove-duplicates-from-sorted-array-ii/solution.cs) |
@@ -281,9 +301,6 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 | 3403 | [Find the Lexicographically Largest String From the Box I](https://leetcode.com/problems/find-the-lexicographically-largest-string-from-the-box-i/) | Medium | csharp | [solution.cs](solutions/0058-length-of-last-word/solution.cs) |
 | 3423 | [Maximum Difference Between Adjacent Elements in a Circular Array](https://leetcode.com/problems/maximum-difference-between-adjacent-elements-in-a-circular-array/) | Easy | csharp | [solution.cs](solutions/0055-jump-game/solution.cs) |
 | 3442 | [Maximum Difference Between Even and Odd Frequency I](https://leetcode.com/problems/maximum-difference-between-even-and-odd-frequency-i/) | Easy | csharp | [solution.cs](solutions/0050-powx-n/solution.cs) |
-| 3467 | [Transform Array by Parity](https://leetcode.com/problems/transform-array-by-parity/) | Easy | csharp | [solution.cs](solutions/0048-rotate-image/solution.cs) |
-| 3477 | [Fruits Into Baskets II](https://leetcode.com/problems/fruits-into-baskets-ii/) | Easy | csharp | [solution.cs](solutions/0043-multiply-strings/solution.cs) |
-| 3487 | [Maximum Unique Subarray Sum After Deletion](https://leetcode.com/problems/maximum-unique-subarray-sum-after-deletion/) | Easy | csharp | [solution.cs](solutions/0036-valid-sudoku/solution.cs) |
 | 3492 | [Maximum Containers on a Ship](https://leetcode.com/problems/maximum-containers-on-a-ship/) | Easy | csharp | [solution.cs](solutions/0035-search-insert-position/solution.cs) |
 | 3498 | [Reverse Degree of a String](https://leetcode.com/problems/reverse-degree-of-a-string/) | Easy | csharp | [solution.cs](solutions/0034-find-first-and-last-position-of-element-in-sorted-array/solution.cs) |
 | 3512 | [Minimum Operations to Make Array Sum Divisible by K](https://leetcode.com/problems/minimum-operations-to-make-array-sum-divisible-by-k/) | Easy | csharp | [solution.cs](solutions/0029-divide-two-integers/solution.cs) |
