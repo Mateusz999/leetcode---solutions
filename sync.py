@@ -12,11 +12,35 @@ HEADERS = {
     "x-csrftoken": LEETCODE_CSRF,
 }
 
+# Normalizacja języków — najważniejsze dla poprawnych rozszerzeń
+LANG_MAP = {
+    "python": "python",
+    "python3": "python",
+
+    "cpp": "cpp",
+    "c++": "cpp",
+
+    "java": "java",
+
+    "javascript": "javascript",
+    "js": "javascript",
+
+    "typescript": "typescript",
+    "ts": "typescript",
+
+    "csharp": "csharp",
+    "c#": "csharp",
+
+    "sql": "sql",
+    "mysql": "sql",
+}
+
 EXTENSIONS = {
     "cpp": "cpp", "rust": "rs", "csharp": "cs", "java": "java",
     "javascript": "js", "sql": "sql", "python": "py", "typescript": "ts",
     "go": "go", "ruby": "rb", "php": "php", "c": "c", "swift": "swift", "kotlin": "kt"
 }
+
 
 def get_accepted_problems():
     url = "https://leetcode.com/api/problems/all/"
@@ -37,6 +61,7 @@ def get_accepted_problems():
     except Exception as e:
         print("❌ Błąd pobierania zadań:", e)
         return []
+
 
 def get_latest_accepted_submission(slug):
     query = '''
@@ -61,6 +86,7 @@ def get_latest_accepted_submission(slug):
     except Exception as e:
         print(f"❌ Błąd pobierania submissions dla {slug}:", e)
         return None, None
+
 
 def get_submission_code(submission_id):
     query = '''
@@ -91,6 +117,7 @@ def get_submission_code(submission_id):
         print(f"❌ Błąd pobierania kodu dla submission {submission_id}:", e)
         return None, None
 
+
 def save_solution(problem):
     sub_id, lang = get_latest_accepted_submission(problem["slug"])
     if not sub_id:
@@ -102,11 +129,13 @@ def save_solution(problem):
         return None, None
 
     lang = (lang2 or lang or "unknown").lower()
+    lang = LANG_MAP.get(lang, lang)
     ext = EXTENSIONS.get(lang, "txt")
 
     folder = f"solutions/{problem['frontend_id']:04d}-{problem['slug']}"
     os.makedirs(folder, exist_ok=True)
     file_path = f"{folder}/solution.{ext}"
+
     try:
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(code)
@@ -115,19 +144,23 @@ def save_solution(problem):
         print(f"❌ Błąd zapisu pliku dla {problem['slug']}:", e)
         return None, None
 
-def generate_readme(problems, entries):
+
+def generate_readme(data):
     rows = []
-    for p, entry in zip(sorted(problems, key=lambda x: int(x["frontend_id"])), entries):
+    for p, entry in data:
         if not entry or not entry[0]:
             continue
+
         title = p["title"]
         link = f"https://leetcode.com/problems/{p['slug']}/"
         difficulty = ["Easy", "Medium", "Hard"][p["difficulty"] - 1]
         file_path, lang = entry
+
         rows.append(
             f"| {p['frontend_id']} | [{title}]({link}) | {difficulty} | {lang} | "
             f"[{os.path.basename(file_path)}]({file_path}) |"
         )
+
     content = f"""# 🧠 LeetCode Solutions by {LEETCODE_USERNAME}
 
 Automatycznie pobrane rozwiązania z mojego konta LeetCode.
@@ -138,19 +171,28 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
 |----|-------|----------|--------|-------------|
 {chr(10).join(rows)}
 """
+
     try:
         with open("README.md", "w", encoding="utf-8") as f:
             f.write(content)
     except Exception as e:
         print("❌ Błąd zapisu README.md:", e)
 
+
 def main():
     problems = get_accepted_problems()
     if not problems:
         print("❌ Brak zadań do przetworzenia.")
         return
-    entries = [save_solution(p) for p in problems]
-    generate_readme(problems, entries)
+
+    # 🔥 KLUCZOWA POPRAWKA — SORTOWANIE PRZED POBIERANIEM KODÓW
+    problems = sorted(problems, key=lambda x: int(x["frontend_id"]))
+
+    # odpowiadające sobie dane (problem + rozwiązanie)
+    data = [(p, save_solution(p)) for p in problems]
+
+    generate_readme(data)
+
 
 if __name__ == "__main__":
     main()
