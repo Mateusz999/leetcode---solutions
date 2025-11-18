@@ -1,5 +1,6 @@
 import os
 import requests
+from datetime import datetime
 
 LEETCODE_USERNAME = "MvB_Coder"
 LEETCODE_SESSION = os.environ.get("LEETCODE_SESSION") or "TWOJ_SESSION"
@@ -153,9 +154,13 @@ def generate_readme(data):
             f"| {p['frontend_id']} | [{title}]({link}) | {difficulty} | {lang} | "
             f"[{os.path.basename(file_path)}]({file_path}) |"
         )
+
+    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
     content = f"""# 🧠 LeetCode Solutions by {LEETCODE_USERNAME}
 
 Automatycznie pobrane rozwiązania z mojego konta LeetCode.
+
+*Ostatnia aktualizacja: {timestamp}*
 
 ## 📊 Lista zadań
 
