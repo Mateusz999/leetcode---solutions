@@ -2,11 +2,8 @@ name: Sync LeetCode Solutions
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * *'  # codziennie o 6:00 rano
   workflow_dispatch:
-
-permissions:
-  contents: write      # 🔥 konieczne, inaczej push jest blokowany
 
 jobs:
   sync:
@@ -19,8 +16,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0   # 🔥 wymagane do commit/push
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -31,7 +26,7 @@ jobs:
         run: pip install requests
 
       - name: Run sync script
-        run: python sync.py   # 🔥 upewnij się, że to właściwy plik
+        run: python sync.py
 
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
