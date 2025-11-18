@@ -31,7 +31,7 @@ jobs:
         run: pip install requests
 
       - name: Run sync script
-        run: python main.py   # 🔥 upewnij się, że to właściwy plik
+        run: python sync.py   # 🔥 upewnij się, że to właściwy plik
 
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
