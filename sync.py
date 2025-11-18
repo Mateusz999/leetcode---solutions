@@ -1,6 +1,5 @@
 import os
 import requests
-from datetime import datetime
 
 LEETCODE_USERNAME = "MvB_Coder"
 LEETCODE_SESSION = os.environ.get("LEETCODE_SESSION") or "TWOJ_SESSION"
@@ -13,36 +12,19 @@ HEADERS = {
     "x-csrftoken": LEETCODE_CSRF,
 }
 
-LANG_MAP = {
-    "python": "python",
-    "python3": "python",
-    "cpp": "cpp",
-    "c++": "cpp",
-    "java": "java",
-    "javascript": "javascript",
-    "js": "javascript",
-    "typescript": "typescript",
-    "ts": "typescript",
-    "csharp": "csharp",
-    "c#": "csharp",
-    "sql": "sql",
-    "mysql": "sql",
-}
-
 EXTENSIONS = {
     "cpp": "cpp", "rust": "rs", "csharp": "cs", "java": "java",
     "javascript": "js", "sql": "sql", "python": "py", "typescript": "ts",
     "go": "go", "ruby": "rb", "php": "php", "c": "c", "swift": "swift", "kotlin": "kt"
 }
 
-
 def get_accepted_problems():
+    url = "https://leetcode.com/api/problems/all/"
     try:
-        url = "https://leetcode.com/api/problems/all/"
         r = requests.get(url, headers=HEADERS)
         r.raise_for_status()
         data = r.json()
-        problems = [
+        return [
             {
                 "title": q["stat"]["question__title"],
                 "slug": q["stat"]["question__title_slug"],
@@ -52,12 +34,9 @@ def get_accepted_problems():
             for q in data["stat_status_pairs"]
             if q.get("status") == "ac"
         ]
-        print(f"✅ Pobrano {len(problems)} zaakceptowanych zadań")
-        return problems
     except Exception as e:
         print("❌ Błąd pobierania zadań:", e)
         return []
-
 
 def get_latest_accepted_submission(slug):
     query = '''
@@ -69,7 +48,8 @@ def get_latest_accepted_submission(slug):
     '''
     vars_ = {"questionSlug": slug, "offset": 0, "limit": 50}
     try:
-        r = requests.post("https://leetcode.com/graphql", headers=HEADERS, json={"query": query, "variables": vars_})
+        r = requests.post("https://leetcode.com/graphql", headers=HEADERS,
+                          json={"query": query, "variables": vars_})
         r.raise_for_status()
         data = r.json()
         subs = data.get("data", {}).get("submissionList", {}).get("submissions", [])
@@ -82,7 +62,6 @@ def get_latest_accepted_submission(slug):
         print(f"❌ Błąd pobierania submissions dla {slug}:", e)
         return None, None
 
-
 def get_submission_code(submission_id):
     query = '''
     query submissionDetails($submissionId: Int!) {
@@ -93,7 +72,8 @@ def get_submission_code(submission_id):
     }
     '''
     try:
-        r = requests.post("https://leetcode.com/graphql", headers=HEADERS, json={"query": query, "variables": {"submissionId": submission_id}})
+        r = requests.post("https://leetcode.com/graphql", headers=HEADERS,
+                          json={"query": query, "variables": {"submissionId": submission_id}})
         r.raise_for_status()
         data = r.json()
         if "errors" in data:
@@ -111,11 +91,9 @@ def get_submission_code(submission_id):
         print(f"❌ Błąd pobierania kodu dla submission {submission_id}:", e)
         return None, None
 
-
 def save_solution(problem):
     sub_id, lang = get_latest_accepted_submission(problem["slug"])
     if not sub_id:
-        print(f"⚠️ Brak zaakceptowanej submission dla {problem['slug']}")
         return None, None
 
     code, lang2 = get_submission_code(sub_id)
@@ -124,26 +102,22 @@ def save_solution(problem):
         return None, None
 
     lang = (lang2 or lang or "unknown").lower()
-    lang = LANG_MAP.get(lang, lang)
     ext = EXTENSIONS.get(lang, "txt")
 
     folder = f"solutions/{problem['frontend_id']:04d}-{problem['slug']}"
     os.makedirs(folder, exist_ok=True)
     file_path = f"{folder}/solution.{ext}"
-
     try:
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(code)
-        print(f"✅ Zapisano: {file_path}")
         return file_path, lang
     except Exception as e:
         print(f"❌ Błąd zapisu pliku dla {problem['slug']}:", e)
         return None, None
 
-
-def generate_readme(data):
+def generate_readme(problems, entries):
     rows = []
-    for p, entry in data:
+    for p, entry in zip(sorted(problems, key=lambda x: int(x["frontend_id"])), entries):
         if not entry or not entry[0]:
             continue
         title = p["title"]
@@ -154,13 +128,9 @@ def generate_readme(data):
             f"| {p['frontend_id']} | [{title}]({link}) | {difficulty} | {lang} | "
             f"[{os.path.basename(file_path)}]({file_path}) |"
         )
-
-    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
     content = f"""# 🧠 LeetCode Solutions by {LEETCODE_USERNAME}
 
 Automatycznie pobrane rozwiązania z mojego konta LeetCode.
-
-*Ostatnia aktualizacja: {timestamp}*
 
 ## 📊 Lista zadań
 
@@ -171,27 +141,16 @@ Automatycznie pobrane rozwiązania z mojego konta LeetCode.
     try:
         with open("README.md", "w", encoding="utf-8") as f:
             f.write(content)
-        print(f"✅ README.md zapisany w {os.path.abspath('README.md')}")
     except Exception as e:
         print("❌ Błąd zapisu README.md:", e)
 
-
 def main():
-    print("Start sync.py")
-    print(f"LEETCODE_SESSION ustawione: {bool(LEETCODE_SESSION)}")
-    print(f"LEETCODE_CSRF ustawione: {bool(LEETCODE_CSRF)}")
-
     problems = get_accepted_problems()
     if not problems:
         print("❌ Brak zadań do przetworzenia.")
         return
-
-    problems = sorted(problems, key=lambda x: int(x["frontend_id"]))
-    data = [(p, save_solution(p)) for p in problems]
-
-    generate_readme(data)
-    print("Koniec sync.py")
-
+    entries = [save_solution(p) for p in problems]
+    generate_readme(problems, entries)
 
 if __name__ == "__main__":
-    main()
+    main() 
