@@ -1,9 +1,14 @@
 name: Sync LeetCode Solutions
 
+# Wyzwalanie workflow: codziennie o 6:00 rano i manualnie
 on:
   schedule:
-    - cron: '0 6 * * *'  # codziennie o 6:00 rano
+    - cron: '0 6 * * *'
   workflow_dispatch:
+
+# Uprawnienia do zapisu w repo
+permissions:
+  contents: write
 
 jobs:
   sync:
@@ -14,20 +19,25 @@ jobs:
       LEETCODE_CSRF: ${{ secrets.LEETCODE_CSRF }}
 
     steps:
+      # 1️⃣ Pobranie repo
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      # 2️⃣ Setup Pythona
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
+      # 3️⃣ Instalacja dependencies
       - name: Install dependencies
         run: pip install requests
 
+      # 4️⃣ Uruchomienie sync.py
       - name: Run sync script
         run: python sync.py
 
+      # 5️⃣ Commit i push
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v9
         with:
@@ -36,3 +46,4 @@ jobs:
           message: "Update LeetCode solutions"
           add: "README.md solutions/"
           push: true
+          allow_empty_commit: true  # wymusza commit nawet jeśli brak zmian
